@@ -1,8 +1,6 @@
 package stars_classes;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Group implements Iterable<Integer> {
     private int indicator;
@@ -46,13 +44,33 @@ public class Group implements Iterable<Integer> {
     }
 
     //Сюда не смотрите, пожалуйста :))
-
+    @Override
     public Iterator<Integer> iterator(){
-        List<Integer> list = new ArrayList<>();
-        for(int i = 0; i < massive.length; i++){
-            list.add(massive[i]);
-        }
-        Iterator<Integer> iterator = list.iterator();
-        return iterator;
+        return new GroupIterator();
     }
+
+    public class GroupIterator implements Iterator<Integer>{
+
+        Integer current = 0;
+
+        @Override
+        public boolean hasNext() {
+            if(current == massive.length){
+                return false;
+            }
+            return true;
+        }
+
+        @Override
+        public Integer next() {
+            if(!hasNext()){
+                throw new NoSuchElementException();
+            }
+            current++;
+            return massive[current-1];
+
+        }
+    }
+
+
 }

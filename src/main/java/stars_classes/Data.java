@@ -1,9 +1,6 @@
 package stars_classes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Data implements Iterable{
     private String name;
@@ -45,17 +42,32 @@ public class Data implements Iterable{
         return massive.length;
     }
 
-    public Iterator<Data> iterator(){
 
-
+    @Override
+    public Iterator<Group> iterator(){
+        return new DataIterator();
     }
-//
-//    public void iterator2(){
-//        Iterable<Group> iterable = Arrays.asList(massive);
-//        while(iterable.iterator().hasNext()){
-//
-//            //Iterator<Integer> iterator2 = new
-//
-//        }
-//    }
+
+    public class DataIterator implements Iterator<Group>{
+
+        Integer current = 0;
+
+        @Override
+        public boolean hasNext() {
+            if(current == massive.length){
+                return false;
+            }
+            return true;
+        }
+
+        @Override
+        public Group next() {
+            if(!hasNext()){
+                throw new NoSuchElementException();
+            }
+            current++;
+            return massive[current-1];
+
+        }
+    }
 }
