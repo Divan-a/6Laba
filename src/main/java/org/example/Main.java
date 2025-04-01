@@ -28,7 +28,7 @@ public class Main {
         Data data = new Data("name", arr);
 
 
-        List<Integer> list = DataDemo.getAll(data);
+        List<Integer> list = DataDemo.getAllFrik(data);
 
         for(int i: list){
             System.out.println(i);

@@ -14,4 +14,13 @@ public class DataDemo {
 
         return list;
     }
+    public static List<Integer> getAllFrik(Data data){
+        List<Integer> list = new ArrayList<>();
+        while(data.iterator().hasNext()){
+            while(data.iterator().next().iterator().hasNext()){
+                list.add(data.iterator().next().iterator().next());
+            }
+        }
+        return list;
+    }
 }
