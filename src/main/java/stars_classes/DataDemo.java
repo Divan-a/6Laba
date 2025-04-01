@@ -1,6 +1,7 @@
 package stars_classes;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 public class DataDemo {
@@ -18,7 +19,7 @@ public class DataDemo {
         List<Integer> list = new ArrayList<>();
         while(data.iterator().hasNext()){
             while(data.iterator().next().iterator().hasNext()){
-                list.add(data.iterator().next().iterator().next());
+                list.addLast(data.iterator().next().iterator().next());
             }
         }
         return list;

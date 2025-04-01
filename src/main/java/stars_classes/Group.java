@@ -46,31 +46,10 @@ public class Group implements Iterable<Integer> {
     //Сюда не смотрите, пожалуйста :))
     @Override
     public Iterator<Integer> iterator(){
-        return new GroupIterator();
+        return new GroupIterator(new Group(indicator, massive));
     }
 
-    public class GroupIterator implements Iterator<Integer>{
 
-        Integer current = 0;
-
-        @Override
-        public boolean hasNext() {
-            if(current == massive.length){
-                return false;
-            }
-            return true;
-        }
-
-        @Override
-        public Integer next() {
-            if(!hasNext()){
-                throw new NoSuchElementException();
-            }
-            current++;
-            return massive[current-1];
-
-        }
-    }
 
 
 }

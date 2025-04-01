@@ -45,29 +45,8 @@ public class Data implements Iterable{
 
     @Override
     public Iterator<Group> iterator(){
-        return new DataIterator();
+        return new DataIterator(new Data(name, massive));
     }
 
-    public class DataIterator implements Iterator<Group>{
 
-        Integer current = 0;
-
-        @Override
-        public boolean hasNext() {
-            if(current == massive.length){
-                return false;
-            }
-            return true;
-        }
-
-        @Override
-        public Group next() {
-            if(!hasNext()){
-                throw new NoSuchElementException();
-            }
-            current++;
-            return massive[current-1];
-
-        }
-    }
 }
